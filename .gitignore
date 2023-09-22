@@ -1,0 +1,9 @@
+output
+.visual
+npm_install_debug.log
+log
+tmpBstackPackages
+node_modules
+data
+package-lock.json
+package.json
