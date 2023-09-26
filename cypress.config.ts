@@ -1,4 +1,5 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
+const allureWriter = require('@shelex/cypress-allure-plugin');
 
 export default defineConfig({
   e2e: {
@@ -9,8 +10,8 @@ export default defineConfig({
     screenshotsFolder: './output/screenshots',
     pageLoadTimeout: 15000,
     execTimeout: 10000,
-    specPattern: '**/*.spec.ts',
-    supportFile: false,
+    specPattern: '**/*.cy.ts',
+    supportFile: 'cypress/support/e2e.ts',
     experimentalWebKitSupport: false,
 
     retries: {
@@ -21,8 +22,6 @@ export default defineConfig({
       qc: 'https://web-ninjamart-qa-bo.apac.positivethinking.tech/',
       uat: 'https://web-ninjamart-qa-bo.apac.positivethinking.tech/',
     },
-    setupNodeEvents(on, config) {
-      // implement node event listeners here
-    },
+    setupNodeEvents(on, config) {},
   },
 });
