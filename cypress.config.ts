@@ -1,4 +1,4 @@
-import { defineConfig } from "cypress";
+import { defineConfig } from 'cypress';
 
 export default defineConfig({
   e2e: {
@@ -9,7 +9,7 @@ export default defineConfig({
     screenshotsFolder: './output/screenshots',
     pageLoadTimeout: 15000,
     execTimeout: 10000,
-    specPattern: '**/*.spec.ts',
+    specPattern: '**/*.cy.ts',
     supportFile: false,
     experimentalWebKitSupport: false,
 
