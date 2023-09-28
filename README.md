@@ -2,7 +2,7 @@
 - Cypress
 - TypeScript
 - Reporter: `cypress-mochawesome-reporter`
-#
+
 ## Setting Up
 
 1. Create NodeJS project: `npm init -y`
@@ -24,7 +24,7 @@
   "include": ["**/*.ts"]
 }
 ```
-#
+
 ## Reporter: cypress-mochawesome-reporter
 
 **Steps**
@@ -46,13 +46,13 @@ reporter: 'cypress-mochawesome-reporter',
       require('cypress-mochawesome-reporter/plugin')(on);
     }
 ```
-#
-### Important note
+
+## Important note
 
 1. Using `prettier - code formatter` to format code
 2. Using `yarn - package manager` to manage package
-3. When declare global an namespace then have to export it `export {}`
-4. Error `x is not a function` with Cypress version > 10
+3. When declaring global a namespace then have to export it: `export {}`
+4. Error `x is not a function with Cypress version > 10
 
 > Solution:
 >
