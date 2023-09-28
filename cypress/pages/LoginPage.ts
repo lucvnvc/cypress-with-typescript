@@ -3,6 +3,7 @@ class LoginPage {
     inputUser: () => cy.get('#user-name'),
     inputPassword: () => cy.get('#password'),
     btnLogin: () => cy.get('#login-button'),
+    lbError: () => cy.get('h3[data-test="error"]'),
   };
 
   setUser(user: string) {
@@ -17,7 +18,7 @@ class LoginPage {
     this.elements.btnLogin().click();
   }
 
-  login(user: string, password: string) {
+  login(user?: string, password?: string): void {
     if (user) {
       this.setUser(user);
     }

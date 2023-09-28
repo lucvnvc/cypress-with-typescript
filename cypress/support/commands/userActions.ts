@@ -13,7 +13,7 @@ declare namespace Cypress {
      * @param selector
      * @example cy.getText('#element')
      */
-    getText(selector: Chainable<Element>): Chainable<string>;
+    getText(selector: JQuery<HTMLElement>): Chainable<string>;
   }
 }
 
@@ -26,9 +26,3 @@ Cypress.Commands.add('login', (user: string, password: string) => {
   }
   cy.get('#login-button').click();
 });
-
-// Cypress.Commands.add('getText', selector => {
-//   return cy.get(selector).then(text => {
-//     return text.text().trim();
-//   });
-// });
