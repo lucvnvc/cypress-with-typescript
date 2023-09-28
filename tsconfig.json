@@ -2,18 +2,11 @@
   "compilerOptions": {
     "baseUrl": "../node_modules",
     "module": "commonjs",
-    "lib": ["dom", "es6"],
-    "noImplicitAny": true,
-    "noImplicitThis": true,
-    "strictNullChecks": true,
-    "strictFunctionTypes": true,
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "types": [],
-    "noEmit": true,
+    "target": "ES5",
+    "lib": ["dom", "ES5"],
+    "types": ["cypress", "node", "cypress-mochawesome-reporter"],
     "forceConsistentCasingInFileNames": true,
-    "esModuleInterop": true,
-    "target": "ES6"
+    "esModuleInterop": true
   },
-  "include": ["**/*.ts", "**/*.js"]
+  "include": ["**/*.ts"]
 }

@@ -5,16 +5,24 @@ export default defineConfig({
     baseUrl: 'https://www.saucedemo.com',
     defaultCommandTimeout: 5000,
     video: false,
-    videosFolder: './output/videos',
-    screenshotsFolder: './output/screenshots',
+    screenshotsFolder: './reports/screenshots',
+    reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+      reportDir: './reports/',
+      charts: true,
+      reportPageTitle: 'Cypress report',
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
+    },
     pageLoadTimeout: 15000,
     execTimeout: 10000,
-    specPattern: '**/*.cy.ts',
+    specPattern: '**/*.spec.ts',
     supportFile: false,
     experimentalWebKitSupport: false,
 
     retries: {
-      runMode: 2,
+      runMode: 0,
       openMode: 0,
     },
     env: {
@@ -22,7 +30,7 @@ export default defineConfig({
       uat: 'https://web-ninjamart-qa-bo.apac.positivethinking.tech/',
     },
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
 });
