@@ -17,7 +17,7 @@ export default defineConfig({
     },
     pageLoadTimeout: 15000,
     execTimeout: 10000,
-    specPattern: '**/*.spec.ts',
+    specPattern: '**/*.cy.ts',
     supportFile: false,
     experimentalWebKitSupport: false,
 

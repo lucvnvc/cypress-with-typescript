@@ -5,5 +5,4 @@ log
 tmpBstackPackages
 node_modules
 data
-package-lock.json
-package.json
+reports
