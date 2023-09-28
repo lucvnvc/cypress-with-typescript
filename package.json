@@ -7,7 +7,7 @@
     "cy:open": "cypress open",
     "delete:reports": "rm -rf allure-results || true",
     "serve:report": "serve reports",
-    "cy:run": "yarn delete:reports && cypress run --browser chrome"
+    "cy:run": "yarn delete:reports && cypress run"
   },
   "keywords": [],
   "author": "",
