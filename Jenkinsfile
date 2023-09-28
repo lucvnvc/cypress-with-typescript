@@ -13,7 +13,6 @@ pipeline {
         stage('Load dependencies') {
             steps {
 		sh 'npm install'
-                sh 'yarn install'
             }
         }
         stage('E2E Tests') {
@@ -21,7 +20,7 @@ pipeline {
                 git 'https://github.com/lucvnvc/cypress-with-typescript.git'
 
                 // Run
-                sh 'yarn cy:run --browser ${browser} --headed'
+                sh 'npx cypress run --browser ${browser} --headed'
             }
         }
         stage('Generate report') {
@@ -32,7 +31,7 @@ pipeline {
 	                keepAll: true,
 	                reportDir: './reports',
 	                reportFiles: 'index.html',
-	                reportName: 'HTML Report'
+	                reportName: 'Cypress Report'
                 ]
             }
         }
