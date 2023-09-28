@@ -4,7 +4,7 @@
     "module": "commonjs",
     "target": "ES5",
     "lib": ["dom", "ES5"],
-    "types": ["cypress", "node"],
+    "types": ["cypress", "node", "cypress-mochawesome-reporter"],
     "forceConsistentCasingInFileNames": true,
     "esModuleInterop": true
   },

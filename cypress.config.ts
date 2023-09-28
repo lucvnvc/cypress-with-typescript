@@ -1,13 +1,20 @@
 import { defineConfig } from 'cypress';
-const allureWriter = require('@shelex/cypress-allure-plugin');
 
 export default defineConfig({
   e2e: {
     baseUrl: 'https://www.saucedemo.com',
     defaultCommandTimeout: 5000,
     video: false,
-    videosFolder: './output/videos',
-    screenshotsFolder: './output/screenshots',
+    screenshotsFolder: './reports/screenshots',
+    reporter: 'cypress-mochawesome-reporter',
+    reporterOptions: {
+      reportDir: './reports/',
+      charts: true,
+      reportPageTitle: 'Cypress report',
+      embeddedScreenshots: true,
+      inlineAssets: true,
+      saveAllAttempts: false,
+    },
     pageLoadTimeout: 15000,
     execTimeout: 10000,
     specPattern: '**/*.cy.ts',
@@ -15,13 +22,15 @@ export default defineConfig({
     experimentalWebKitSupport: false,
 
     retries: {
-      runMode: 2,
+      runMode: 0,
       openMode: 0,
     },
     env: {
       qc: 'https://web-ninjamart-qa-bo.apac.positivethinking.tech/',
       uat: 'https://web-ninjamart-qa-bo.apac.positivethinking.tech/',
     },
-    setupNodeEvents(on, config) {},
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
   },
 });

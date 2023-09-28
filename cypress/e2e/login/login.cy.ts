@@ -1,4 +1,17 @@
+import { User } from '../../environment/Setup';
+
 describe('Login function', () => {
+  let user: User;
+  const ERROR_USERNAME_REQUIRED: string = 'Epic sadface: Username is required';
+  const ERROR_PASSWORD_REQUIRED: string = 'Epic sadface: Password is required';
+  const ERROR_USERNAME_PASSWORD_NOT_MATCHED: string =
+    'Epic sadface: Username and password do not match any user in this service';
+
+  before(() => {
+    cy.fixture('user.json').then(td => {
+      user = td;
+    });
+  });
   beforeEach(() => {
     cy.visit('/');
   });
@@ -8,7 +21,7 @@ describe('Login function', () => {
       cy.login();
       cy.get('h3[data-test="error"]').should(
         'have.text',
-        'Epic sadface: Username is required'
+        ERROR_USERNAME_REQUIRED
       );
     });
 
@@ -16,7 +29,7 @@ describe('Login function', () => {
       cy.login('standard_user');
       cy.get('h3[data-test="error"]').should(
         'have.text',
-        'Epic sadface: Password is required'
+        ERROR_PASSWORD_REQUIRED
       );
     });
 
@@ -24,15 +37,15 @@ describe('Login function', () => {
       cy.login('standard_user1', 'secret_sauce1');
       cy.get('h3[data-test="error"]').should(
         'have.text',
-        'Epic sadface: Username and password do not match any user in this service'
+        ERROR_USERNAME_PASSWORD_NOT_MATCHED
       );
     });
   });
 
   describe('Login with valid user', () => {
     it('verify login successfully with valid user', () => {
-      cy.login('standard_user', 'secret_sauce');
-      cy.url().should('contain', '/inventory.html');
+      cy.login(user.username, user.password);
+      cy.url().should('contain', '/inventory1.html');
     });
   });
 });
