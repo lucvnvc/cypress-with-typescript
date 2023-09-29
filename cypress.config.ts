@@ -18,7 +18,7 @@ export default defineConfig({
     pageLoadTimeout: 15000,
     execTimeout: 10000,
     specPattern: '**/*.cy.ts',
-    supportFile: false,
+    supportFile: 'cypress/support/e2e.ts',
     experimentalWebKitSupport: false,
 
     retries: {

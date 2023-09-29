@@ -5,4 +5,5 @@ log
 tmpBstackPackages
 node_modules
 data
+reports/screenshots
 reports
