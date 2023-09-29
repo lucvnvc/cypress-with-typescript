@@ -21,13 +21,14 @@ pipeline {
         }
         stage('Generate report') {
             steps {
-                publishHTML (target : [allowMissing: false,
-                    alwaysLinkToLastBuild: true,
-                    keepAll: true,
-                    reportDir: './reports',
-                    reportFiles: 'index.html',
-                    reportName: 'Cypress Report',
-                    reportTitles: 'Cypress Report - Demo'])
+                publishHTML target: [
+	                allowMissing: false,
+	                alwaysLinkToLastBuild: false,
+	                keepAll: true,
+	                reportDir: './reports',
+	                reportFiles: 'index.html',
+	                reportName: 'Cypress Report'
+                ]
             }
         }
     }
