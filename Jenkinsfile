@@ -1,10 +1,6 @@
 pipeline {
     agent any
-
-    environment {
-    	NPM_CONFIG_CACHE = "${WORKSPACE}/.npm"
-    }
-
+    
     tools {
         nodejs "nodejs"
     }
@@ -25,14 +21,13 @@ pipeline {
         }
         stage('Generate report') {
             steps {
-                publishHTML target: [
-	                allowMissing: false,
-	                alwaysLinkToLastBuild: false,
-	                keepAll: true,
-	                reportDir: './reports',
-	                reportFiles: 'index.html',
-	                reportName: 'Cypress Report'
-                ]
+                publishHTML (target : [allowMissing: false,
+                    alwaysLinkToLastBuild: true,
+                    keepAll: true,
+                    reportDir: 'reports',
+                    reportFiles: 'index.html',
+                    reportName: 'Cypress Reports',
+                    reportTitles: 'Cypress Report'])
             }
         }
     }
