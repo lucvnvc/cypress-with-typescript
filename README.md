@@ -69,7 +69,7 @@ reporter: 'cypress-mochawesome-reporter',
 > `browserstack-cypress run -u <username> -k <access_key> --browser "<browser_name@version:os_name>" --sync --specs <path_of_spec>`
 
 
-Can refer to [argument list]('https://www.browserstack.com/docs/automate/cypress/cli-reference')
+[Can refer to argument list]('https://www.browserstack.com/docs/automate/cypress/cli-reference')
 
 ## Important note
 
