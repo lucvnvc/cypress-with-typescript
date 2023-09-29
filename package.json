@@ -9,12 +9,14 @@
     "serve:report": "serve reports",
     "cy:run": "yarn delete:reports && cypress run",
     "cy:run-application-actions": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-application-actions.cy.ts\"",
-    "cy:run-pom": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-application-actions.cy.ts\""
+    "cy:run-pom": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-page-object-model.cy.ts\"",
+    "cy:browser-stack": "browserstack-cypress run --sync --specs \"./cypress/e2e/login/login-apply-application-actions.cy.ts\""
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "browserstack-cypress-cli": "1.25.3",
     "cypress": "13.2.0",
     "typescript": "5.2.2"
   },

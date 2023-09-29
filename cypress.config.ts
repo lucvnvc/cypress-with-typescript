@@ -5,7 +5,7 @@ export default defineConfig({
     baseUrl: 'https://www.saucedemo.com',
     defaultCommandTimeout: 5000,
     video: false,
-    screenshotsFolder: './reports/screenshots',
+    screenshotsFolder: './reports/',
     reporter: 'cypress-mochawesome-reporter',
     reporterOptions: {
       reportDir: './reports/',
