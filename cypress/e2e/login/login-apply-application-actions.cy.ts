@@ -45,7 +45,7 @@ describe('Login function', () => {
   describe('Login with valid user', () => {
     it('verify login successfully with valid user', () => {
       cy.login(user.username, user.password);
-      cy.url().should('contain', '/inventory1.html');
+      cy.url().should('contain', '/inventory.html');
     });
   });
 });

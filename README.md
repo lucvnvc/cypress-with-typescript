@@ -47,6 +47,30 @@ reporter: 'cypress-mochawesome-reporter',
     }
 ```
 
+## Integration
+
+#### BrowserStack
+
+**Install dependencies:** `npm i browserstack-cypress-cli`
+
+**Steps:**
+1. Generate configuration file by `browserstack-cypress init`
+2. Config file (reference to `browserstack.json`)
+
+**Run**
+
+> Run with configuration on `browserstack.json` file
+>
+> `browserstack-cypress run -u <username> -k <access_key>`
+
+
+> Run with specific argument
+>
+> `browserstack-cypress run -u <username> -k <access_key> --browser "<browser_name@version:os_name>" --sync --specs <path_of_spec>`
+
+
+Can refer to [argument list]('https://www.browserstack.com/docs/automate/cypress/cli-reference')
+
 ## Important note
 
 1. Using `prettier - code formatter` to format code
