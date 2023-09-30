@@ -16,7 +16,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "browserstack-cypress-cli": "1.25.3",
     "cypress": "13.2.0",
     "typescript": "5.2.2"
   },
@@ -24,6 +23,6 @@
     "cypress-mochawesome-reporter": "3.6.0",
     "prettier": "3.0.3",
     "serve": "14.2.1",
-    "yarn": "1.22.19"
+    "browserstack-cypress-cli": "1.25.3"
   }
 }
