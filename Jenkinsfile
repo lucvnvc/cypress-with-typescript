@@ -16,11 +16,7 @@ pipeline {
                 git 'https://github.com/lucvnvc/cypress-with-typescript.git'
 
                 // Run
-		try {
-                sh 'yarn cy:run-application-actions --browser ${browser} --headed'
-		} catch (e) {
-			echo "An error occurred: ${e}"
-		}
+		sh 'yarn cy:run-application-actions --browser ${browser} --headed'
             }
         }
         stage('Generate report') {
