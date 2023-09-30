@@ -16,7 +16,7 @@ pipeline {
                 git 'https://github.com/lucvnvc/cypress-with-typescript.git'
 
                 // Run
-		sh 'yarn ${runWith} --browser ${browser} --headed'
+		        sh 'yarn ${runWith} --browser ${browser} --headed'
             }
         }
         stage('Generate report') {
