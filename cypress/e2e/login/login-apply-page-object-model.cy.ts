@@ -4,7 +4,7 @@ import productPage from '../../pages/ProductPage';
 
 describe('Login function', () => {
   let user: User;
-  const ERROR_USERNAME_REQUIRED: string = 'Epic sadface: Username is required 1';
+  const ERROR_USERNAME_REQUIRED: string = 'Epic sadface: Username is required';
   const ERROR_PASSWORD_REQUIRED: string = 'Epic sadface: Password is required';
   const ERROR_USERNAME_PASSWORD_NOT_MATCHED: string =
     'Epic sadface: Username and password do not match any user in this service';
@@ -40,7 +40,7 @@ describe('Login function', () => {
   describe('Login with valid user', () => {
     it('verify login successfully with valid user', () => {
       loginPage.login(user.username, user.password);
-      productPage.elements.lbTitle().should('be.visible');
+      productPage.elements.lbTitle().should('not.be.visible');
     });
   });
 });
