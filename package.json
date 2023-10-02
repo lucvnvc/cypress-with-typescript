@@ -1,16 +1,16 @@
 {
-  "name": "cypress-with-typescript-mocha-allure",
+  "name": "cypress-with-typescript",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cy:open": "cypress open",
+    "open": "cypress open",
     "delete:reports": "rm -rf ./reports || true",
     "serve:report": "serve reports",
-    "cy:run": "yarn delete:reports && cypress run",
-    "cy:run-application-actions": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-application-actions.cy.ts\"",
-    "cy:run-pom": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-page-object-model.cy.ts\"",
-    "cy:browser-stack": "browserstack-cypress run --sync --specs \"./cypress/e2e/login/login-apply-application-actions.cy.ts\""
+    "run": "yarn delete:reports && cypress run",
+    "run-application-actions": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-application-actions.cy.ts\"",
+    "run-pom": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-page-object-model.cy.ts\"",
+    "browser-stack": "browserstack-cypress run --sync --specs \"./cypress/e2e/login/login-apply-application-actions.cy.ts\""
   },
   "keywords": [],
   "author": "",

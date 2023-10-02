@@ -25,6 +25,33 @@
 }
 ```
 
+## How to debug
+1. Using `stack trace`
+2. Using `debugger`: Work well after then()
+
+```
+it('Click on Sign In', () => {
+
+        cy.get('a[title="Sign In"]').then(($selectedElement) => {
+
+            debugger;
+
+            $selectedElement.get(0).click()
+
+        })
+
+    })
+```
+
+3. Using log: `cy.log()` or `console.log()`
+
+4. Using `.debug()`: Need to dev tool open first
+   
+```
+.debug() provides debugging information when Cypress hits the .debug() command
+```
+5. Using `.pause()`: The .pause() command stops cy commands from running and allows interaction with the application under test. Testers can then “resume” running all commands or choose to step through the “next” commands from the Command Log.
+
 ## Reporter: cypress-mochawesome-reporter
 
 **Steps**
@@ -69,7 +96,7 @@ reporter: 'cypress-mochawesome-reporter',
 >
 > `browserstack-cypress run -u <username> -k <access_key> --browser "<browser_name@version:os_name>" --sync --specs <path_of_spec>`
 
-## Important note
+## :boom: Important note
 
 1. Using `prettier - code formatter` to format code
 2. Using `yarn - package manager` to manage package

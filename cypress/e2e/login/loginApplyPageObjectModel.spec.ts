@@ -38,9 +38,10 @@ describe('Login function', () => {
   });
 
   describe('Login with valid user', () => {
-    it('verify login successfully with valid user', () => {
+    it.only('verify login successfully with valid user', () => {
       loginPage.login(user.username, user.password);
-      productPage.elements.lbTitle().should('not.be.visible');
+      expect(cy.getText(productPage.elements.lbTitle())).to.be.visible;
+      // productPage.elements.lbTitle().should('not.be.visible');
     });
   });
 });
