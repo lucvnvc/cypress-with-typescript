@@ -3,7 +3,8 @@ import { defineConfig } from 'cypress';
 export default defineConfig({
   e2e: {
     baseUrl: 'https://www.saucedemo.com',
-    defaultCommandTimeout: 5000,
+    defaultCommandTimeout: 10000,
+    pageLoadTimeout: 30000,
     video: false,
     screenshotsFolder: './reports/',
     reporter: 'cypress-mochawesome-reporter',
@@ -15,9 +16,7 @@ export default defineConfig({
       inlineAssets: true,
       saveAllAttempts: false,
     },
-    pageLoadTimeout: 15000,
-    execTimeout: 10000,
-    specPattern: '**/*.cy.ts',
+    specPattern: '**/*.spec.ts',
     supportFile: 'cypress/support/e2e.ts',
     experimentalWebKitSupport: false,
 
