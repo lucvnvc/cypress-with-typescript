@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Load dependencies') {
             steps {
-		sh 'yarn'
+		        sh 'npm install'
             }
         }
         stage('E2E Tests') {
@@ -16,7 +16,8 @@ pipeline {
                 git 'https://github.com/lucvnvc/cypress-with-typescript.git'
 
                 // Run
-		        sh 'yarn ${runWith} --browser ${browser} --headed'
+                sh 'npm run delete:reports'
+		        sh 'npm run ${runWith} --browser ${browser} --headed'
             }
         }
         stage('Generate report') {

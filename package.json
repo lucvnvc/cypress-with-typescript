@@ -4,13 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "open": "cypress open",
+    "cy:run:first-test": "cypress run --browser chrome --spec ./cypress/e2e/firstTest.spec.ts --headed",
+    "cy:open": "cypress open",
     "delete:reports": "rm -rf ./reports || true",
     "serve:report": "serve reports",
-    "run": "yarn delete:reports && cypress run",
-    "run-application-actions": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-application-actions.cy.ts\"",
-    "run-pom": "yarn delete:reports && cypress run --spec \"./cypress/e2e/login/login-apply-page-object-model.cy.ts\"",
-    "browser-stack": "browserstack-cypress run --sync --specs \"./cypress/e2e/login/login-apply-application-actions.cy.ts\""
+    "cy:run": "npm run delete:reports && cypress run",
+    "cy:run:app-actions": "npm run delete:reports && cypress run --spec ./cypress/e2e/login/loginApplyApplicationActions.spec.ts",
+    "cy:run:pom": "npm run delete:reports && cypress run --spec ./cypress/e2e/login/loginApplyApplicationActions.spec.ts",
+    "run:browser-stack": "browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyApplicationActions.spec.ts"
   },
   "keywords": [],
   "author": "",
