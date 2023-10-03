@@ -20,17 +20,18 @@ pipeline {
 		        sh 'npm run ${runWith} --browser ${browser} --headed'
             }
         }
-        stage('Generate report') {
-            steps {
-                publishHTML target: [
-	                allowMissing: false,
-	                alwaysLinkToLastBuild: false,
-	                keepAll: true,
-	                reportDir: './reports',
-	                reportFiles: 'index.html',
-	                reportName: 'Cypress Report'
-                ]
-            }
+    }
+    post {
+        always {
+            echo 'Generate report'
+            publishHTML target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true,
+                reportDir: './reports',
+                reportFiles: 'index.html',
+                reportName: 'Cypress Report'
+            ]
         }
     }
 }
