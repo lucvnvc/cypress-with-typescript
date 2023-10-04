@@ -96,6 +96,51 @@ reporter: 'cypress-mochawesome-reporter',
 >
 > `browserstack-cypress run -u <username> -k <access_key> --browser "<browser_name@version:os_name>" --sync --specs <path_of_spec>`
 
+## :star: Environment variables
+
+**Option 1**: Set in configuration file `cypress.config.ts`
+```
+env: {
+    login_url: '/login',
+    products_url: '/products',
+  }
+```
+
+**Option 2**: Create `cypress.env.json` file. Cypress will automatically check
+```
+{
+  "host": "veronica.dev.local",
+  "api_server": "http://localhost:8888/api/v1/"
+}
+```
+
+**Option 3**: `CYPRESS_*` or `cypress_*`
+
+**Option 4**: `--evn` pass in evn variables as options when using the CLI tool
+```
+cypress run --env host=kevin.dev.local,api_server=http://localhost:8888/api/v1
+```
+
+**Option 5**: Test configuration
+```
+describe(
+  'test against Spanish content',
+  {
+    env: {
+      language: 'es',
+    },
+  },
+  () => {
+    it('displays Spanish', () => {
+      cy.visit(`https://docs.cypress.io/${Cypress.env('language')}/`)
+      cy.contains('¿Por qué Cypress?')
+    })
+  }
+)
+```
+
+> Prioritize by: cli >> cypress.env.json >> configuration file
+
 ## :boom: Important note
 
 1. Using `prettier - code formatter` to format code
