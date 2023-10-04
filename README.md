@@ -1,9 +1,9 @@
-# Tech stack
+# 🏠 Tech stack
 - Cypress
 - TypeScript
 - Reporter: `cypress-mochawesome-reporter`
 
-## Setting Up
+## 🌈 Setting Up
 
 1. Create NodeJS project: `npm init -y`
 2. Install dependencies: `npm i cypress typescript cypress-mochawesome-reporter`
@@ -52,7 +52,7 @@ it('Click on Sign In', () => {
 ```
 5. Using `.pause()`: The .pause() command stops cy commands from running and allows interaction with the application under test. Testers can then “resume” running all commands or choose to step through the “next” commands from the Command Log.
 
-## Reporter: cypress-mochawesome-reporter
+## 📘 Reporter: cypress-mochawesome-reporter
 
 **Steps**
 1. Add dependencies `yarn add -D cypress-mochawesome-reporter`
@@ -139,7 +139,7 @@ describe(
 )
 ```
 
-> Prioritize by: cli >> cypress.env.json >> configuration file
+> 🔴 Prioritize by: cli >> cypress.env.json >> configuration file
 
 ## :boom: Important note
 
