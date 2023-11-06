@@ -16,7 +16,7 @@ describe('Login function', () => {
     cy.visit('/');
   });
 
-  describe('Login with invalid user', () => {
+  describe('Login with invalid credential', () => {
     it('login with both user and password empty', () => {
       cy.login();
       cy.get('h3[data-test="error"]').should(
@@ -25,11 +25,19 @@ describe('Login function', () => {
       );
     });
 
-    it('login with valid user and password empty', () => {
-      cy.login('standard_user');
+    it('login with password empty', () => {
+      cy.login('standard_user', undefined);
       cy.get('h3[data-test="error"]').should(
         'have.text',
         ERROR_PASSWORD_REQUIRED
+      );
+    });
+
+    it('login with user empty', () => {
+      cy.login(undefined, 'secret_sauce');
+      cy.get('h3[data-test="error"]').should(
+        'have.text',
+        ERROR_USERNAME_REQUIRED
       );
     });
 
@@ -42,8 +50,8 @@ describe('Login function', () => {
     });
   });
 
-  describe('Login with valid user', () => {
-    it('verify login successfully with valid user', () => {
+  describe('Login with valid credential', () => {
+    it('verify login successfully with valid user and password', () => {
       cy.login(user.username, user.password);
       cy.url().should('contain', '/inventory.html');
     });

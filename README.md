@@ -146,10 +146,10 @@ describe(
 1. Using `prettier - code formatter` to format code
 2. Using `yarn - package manager` to manage package
 3. When declaring global a namespace then have to export it: `export {}`
-4. Error `x is not a function with Cypress version > 10
+4. Error `x is not a function` with **Cypress version > 10**
 
 > Solution:
 >
-> Modify `supportFile` in `cypress.config.ts` to `cypress/support/e2e.ts`
+> Modify value of `supportFile` in `cypress.config.ts` to `cypress/support/e2e.ts`
 
 5. Using `serve` to serve a static site: `localhost:3000`

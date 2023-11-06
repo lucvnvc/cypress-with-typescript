@@ -18,15 +18,20 @@ describe('Login function', () => {
     cy.visit('/');
   });
 
-  describe('Login with invalid user', () => {
+  describe('Login with invalid credential', () => {
     it('login with both user and password empty', () => {
       loginPage.login();
       loginPage.elements.lbError().should('have.text', ERROR_USERNAME_REQUIRED);
     });
 
-    it('login with valid user and password empty', () => {
-      loginPage.login('standard_user');
+    it('login with password empty', () => {
+      loginPage.login('standard_user', undefined);
       loginPage.elements.lbError().should('have.text', ERROR_PASSWORD_REQUIRED);
+    });
+
+    it('login with user empty', () => {
+      loginPage.login(undefined, 'secret_sauce');
+      loginPage.elements.lbError().should('have.text', ERROR_USERNAME_REQUIRED);
     });
 
     it('login with user and password are not correctly', () => {
@@ -37,11 +42,10 @@ describe('Login function', () => {
     });
   });
 
-  describe('Login with valid user', () => {
-    it.only('verify login successfully with valid user', () => {
+  describe('Login with valid credential', () => {
+    it.only('verify login successfully with valid credential', () => {
       loginPage.login(user.username, user.password);
-      expect(cy.getText(productPage.elements.lbTitle())).to.be.visible;
-      // productPage.elements.lbTitle().should('not.be.visible');
+      productPage.elements.lbTitle().should('not.be.visible');
     });
   });
 });
