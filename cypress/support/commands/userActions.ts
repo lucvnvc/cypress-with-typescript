@@ -6,18 +6,11 @@ declare namespace Cypress {
      * @param password password
      * @example cy.login('user', 'password')
      */
-    login(user?: string, password?: string): string;
-
-    /**
-     *
-     * @param selector
-     * @example cy.getText('#element')
-     */
-    getText(selector: any): Chainable<string>;
+    login(user?: string, password?: string): void;
   }
 }
 
-Cypress.Commands.add('login', (user: string, password: string) => {
+Cypress.Commands.add('login', (user, password) => {
   if (user) {
     cy.get('#user-name').clear().type(user);
   }
@@ -25,10 +18,4 @@ Cypress.Commands.add('login', (user: string, password: string) => {
     cy.get('#password').type(password);
   }
   cy.get('#login-button').click();
-});
-
-Cypress.Commands.add('getText', selector => {
-  return cy.get(selector).then($text => {
-    return $text.text();
-  });
 });
