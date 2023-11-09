@@ -1,9 +1,9 @@
 class LoginPage {
   elements = {
-    inputUser: () => cy.get('#user-name'),
-    inputPassword: () => cy.get('#password'),
-    btnLogin: () => cy.get('#login-button'),
-    lbError: () => cy.get('h3[data-test="error"]'),
+    inputUser: () => cy.get('input[name="username"]'),
+    inputPassword: () => cy.get('input[name="password"]'),
+    btnLogin: () => cy.get('#btn-login'),
+    lbError: () => cy.get('p[class="lead text-danger"]'),
   };
 
   setUser(user: string) {

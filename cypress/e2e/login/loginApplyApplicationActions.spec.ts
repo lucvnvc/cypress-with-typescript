@@ -2,10 +2,8 @@ import { User } from '../../environment/Setup';
 
 describe('Login function', () => {
   let user: User;
-  const ERROR_USERNAME_REQUIRED: string = 'Epic sadface: Username is required';
-  const ERROR_PASSWORD_REQUIRED: string = 'Epic sadface: Password is required';
-  const ERROR_USERNAME_PASSWORD_NOT_MATCHED: string =
-    'Epic sadface: Username and password do not match any user in this service';
+  const ERROR_LOGIN_FAIL: string =
+    'Login failed! Please ensure the username and password are valid.';
 
   before(() => {
     cy.fixture('user.json').then(td => {
@@ -13,39 +11,39 @@ describe('Login function', () => {
     });
   });
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit('/profile.php#login');
   });
 
   describe('Login with invalid credential', () => {
     it('login with both user and password empty', () => {
       cy.login();
-      cy.get('h3[data-test="error"]').should(
+      cy.get('p[class="lead text-danger"]').should(
         'have.text',
-        ERROR_USERNAME_REQUIRED
+        ERROR_LOGIN_FAIL
       );
     });
 
     it('login with password empty', () => {
       cy.login('standard_user', undefined);
-      cy.get('h3[data-test="error"]').should(
+      cy.get('p[class="lead text-danger"]').should(
         'have.text',
-        ERROR_PASSWORD_REQUIRED
+        ERROR_LOGIN_FAIL
       );
     });
 
     it('login with user empty', () => {
       cy.login(undefined, 'secret_sauce');
-      cy.get('h3[data-test="error"]').should(
+      cy.get('p[class="lead text-danger"]').should(
         'have.text',
-        ERROR_USERNAME_REQUIRED
+        ERROR_LOGIN_FAIL
       );
     });
 
     it('login with user and password are not correctly', () => {
       cy.login('standard_user1', 'secret_sauce1');
-      cy.get('h3[data-test="error"]').should(
+      cy.get('p[class="lead text-danger"]').should(
         'have.text',
-        ERROR_USERNAME_PASSWORD_NOT_MATCHED
+        ERROR_LOGIN_FAIL
       );
     });
   });
@@ -53,7 +51,7 @@ describe('Login function', () => {
   describe('Login with valid credential', () => {
     it('verify login successfully with valid user and password', () => {
       cy.login(user.username, user.password);
-      cy.url().should('contain', '/inventory.html');
+      cy.url().should('contain', '#appointment');
     });
   });
 });

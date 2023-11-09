@@ -1,13 +1,11 @@
 import { User } from '../../environment/Setup';
+import appointmentPage from '../../pages/AppointmentPage';
 import loginPage from '../../pages/LoginPage';
-import productPage from '../../pages/ProductPage';
 
 describe('Login function', () => {
   let user: User;
-  const ERROR_USERNAME_REQUIRED: string = 'Epic sadface: Username is required';
-  const ERROR_PASSWORD_REQUIRED: string = 'Epic sadface: Password is required';
-  const ERROR_USERNAME_PASSWORD_NOT_MATCHED: string =
-    'Epic sadface: Username and password do not match any user in this service';
+  const ERROR_LOGIN_FAIL: string =
+    'Login failed! Please ensure the username and password are valid.';
 
   before(() => {
     cy.fixture('user.json').then(td => {
@@ -15,37 +13,37 @@ describe('Login function', () => {
     });
   });
   beforeEach(() => {
-    cy.visit('/');
+    cy.visit('/profile.php#login');
   });
 
   describe('Login with invalid credential', () => {
     it('login with both user and password empty', () => {
       loginPage.login();
-      loginPage.elements.lbError().should('have.text', ERROR_USERNAME_REQUIRED);
+      loginPage.elements.lbError().should('have.text', ERROR_LOGIN_FAIL);
     });
 
     it('login with password empty', () => {
       loginPage.login('standard_user', undefined);
-      loginPage.elements.lbError().should('have.text', ERROR_PASSWORD_REQUIRED);
+      loginPage.elements.lbError().should('have.text', ERROR_LOGIN_FAIL);
     });
 
     it('login with user empty', () => {
       loginPage.login(undefined, 'secret_sauce');
-      loginPage.elements.lbError().should('have.text', ERROR_USERNAME_REQUIRED);
+      loginPage.elements.lbError().should('have.text', ERROR_LOGIN_FAIL);
     });
 
     it('login with user and password are not correctly', () => {
       loginPage.login('standard_user1', 'secret_sauce1');
-      loginPage.elements
-        .lbError()
-        .should('have.text', ERROR_USERNAME_PASSWORD_NOT_MATCHED);
+      loginPage.elements.lbError().should('have.text', ERROR_LOGIN_FAIL);
     });
   });
 
   describe('Login with valid credential', () => {
-    it.only('verify login successfully with valid credential', () => {
+    it('verify login successfully with valid credential', () => {
       loginPage.login(user.username, user.password);
-      productPage.elements.lbTitle().should('not.be.visible');
+      appointmentPage.elements
+        .lbTitle()
+        .should('have.text', 'Make Appointment');
     });
   });
 });

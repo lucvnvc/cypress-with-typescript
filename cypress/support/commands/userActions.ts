@@ -12,10 +12,10 @@ declare namespace Cypress {
 
 Cypress.Commands.add('login', (user, password) => {
   if (user) {
-    cy.get('#user-name').clear().type(user);
+    cy.get('input[name="username"]').clear().type(user);
   }
   if (password) {
-    cy.get('#password').type(password);
+    cy.get('input[name="password"]').type(password);
   }
-  cy.get('#login-button').click();
+  cy.get('#btn-login').click();
 });
