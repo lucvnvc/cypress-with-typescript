@@ -22,7 +22,8 @@
       "exclude": [],
       "parallels": "2",
       "record": true,
-      "headless": true
+      "headless": true,
+      "spec_timeout": 10
     },
     "connection_settings": {
       "local": false
