@@ -6,15 +6,11 @@ pipeline {
     }
 
     stages {
-        stage('Load dependencies') {
-            steps {
-		        sh 'npm install'
-            }
-        }
         stage('E2E Tests') {
             steps {
                 browserstack(credentialsId: '07beebc5-e1b9-4c61-ae18-8f0eefb6c13c') {
                     // Run
+                    sh 'npm install'
                     sh 'npm run delete:reports'
 		            sh 'npm run run:browser-stack'
                 }
