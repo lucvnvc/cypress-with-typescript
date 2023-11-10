@@ -10,17 +10,15 @@ pipeline {
             steps {
 		        sh 'npm install'
             }
-        },
+        }
         stage('E2E Tests') {
             steps {
                 browserstack(credentialsId: '07beebc5-e1b9-4c61-ae18-8f0eefb6c13c') {
-                    git 'https://github.com/lucvnvc/cypress-with-typescript.git'
-
                     // Run
                     sh 'npm run delete:reports'
 		            sh 'npm run run:browser-stack'
                 }
-            },
+            }
         }
     }
     post {
