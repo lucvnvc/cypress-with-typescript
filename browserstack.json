@@ -21,7 +21,7 @@
       "build_name": "Build no. ",
       "exclude": [],
       "parallels": "2",
-      "record": true,
+      "record": false,
       "headless": true,
       "spec_timeout": 10
     },
