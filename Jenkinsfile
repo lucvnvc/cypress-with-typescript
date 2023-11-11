@@ -7,6 +7,9 @@ pipeline {
 
     stages {
         stage('E2E Tests') {
+            when {
+                expression {params.runon=='browserStack'}
+            }
             steps {
                 browserstack(credentialsId: '07beebc5-e1b9-4c61-ae18-8f0eefb6c13c') {
                     // Run
@@ -17,6 +20,29 @@ pipeline {
             }
         }
     }
+
+    // stage('Install BrowserStack CLI') {
+    //     steps {
+    //         sh 'npm install -g browserstack-cypress-cli'
+    //     }
+    // }
+
+    // // Run Cypress tests on BrowserStack
+    // stage('Run Cypress tests on BrowserStack') {
+    //     steps {
+    //         browserstack 'Cypress' {
+    //             // Specify your Cypress test files to run
+    //             spec 'cypress/integration/**/*.spec.js'
+
+    //             // Specify the BrowserStack capabilities
+    //             capabilities {
+    //                 browser 'chrome'
+    //                 browserVersion 'latest'
+    //                 operatingSystem 'macOS'
+    //             }
+    //         }
+    //     }
+    // }
     post {
         always {
             echo 'Generate report'
