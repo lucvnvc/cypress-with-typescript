@@ -27,7 +27,8 @@
       "credentialsId": "07beebc5-e1b9-4c61-ae18-8f0eefb6c13c"
     },
     "connection_settings": {
-      "local": false
+      "local": true,
+      "local_mode": "always-on"
     },
     "disable_usage_reporting": false
   }
