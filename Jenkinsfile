@@ -26,9 +26,5 @@ pipeline {
                 reportName: 'Cypress Report'
             ]
         }
-        always {
-            echo 'BrowserStack report'
-            browserStackReportPublisher 'automate'
-        }
     }
 }
