@@ -15,17 +15,17 @@ pipeline {
         }
     }
 
-    // post {
-    //     always {
-    //         echo 'HTML report'
-    //         publishHTML target: [
-    //             allowMissing: false,
-    //             alwaysLinkToLastBuild: false,
-    //             keepAll: true,
-    //             reportDir: './reports',
-    //             reportFiles: 'index.html',
-    //             reportName: 'Cypress Report'
-    //         ]
-    //     }
-    // }
+    post {
+        always {
+            echo 'HTML report'
+            publishHTML target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: false,
+                keepAll: true,
+                reportDir: './results',
+                reportFiles: 'browserstack-cypress-report.html',
+                reportName: 'HTML Report'
+            ]
+        }
+    }
 }
