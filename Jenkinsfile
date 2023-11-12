@@ -14,28 +14,6 @@ pipeline {
         }
     }
 
-    // stage('Install BrowserStack CLI') {
-    //     steps {
-    //         sh 'npm install -g browserstack-cypress-cli'
-    //     }
-    // }
-
-    // // Run Cypress tests on BrowserStack
-    // stage('Run Cypress tests on BrowserStack') {
-    //     steps {
-    //         browserstack 'Cypress' {
-    //             // Specify your Cypress test files to run
-    //             spec 'cypress/integration/**/*.spec.js'
-
-    //             // Specify the BrowserStack capabilities
-    //             capabilities {
-    //                 browser 'chrome'
-    //                 browserVersion 'latest'
-    //                 operatingSystem 'macOS'
-    //             }
-    //         }
-    //     }
-    // }
     post {
         always {
             echo 'HTML report'
@@ -47,6 +25,8 @@ pipeline {
                 reportFiles: 'index.html',
                 reportName: 'Cypress Report'
             ]
+        }
+        always {
             echo 'BrowserStack report'
             browserStackReportPublisher 'automate'
         }
