@@ -8,7 +8,7 @@ pipeline {
                     // Run
                     sh 'npm install'
                     sh 'rm -rf ./reports || true'
-		            sh './node_modules/.bin/browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyApplicationActions.spec.ts'
+		            sh 'npm run run:browser-stack'
                 }
             }
         }

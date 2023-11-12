@@ -11,7 +11,7 @@
     "cy:run": "npm run delete:reports && cypress run",
     "cy:run:app-actions": "npm run delete:reports && cypress run --spec ./cypress/e2e/login/loginApplyApplicationActions.spec.ts",
     "cy:run:pom": "npm run delete:reports && cypress run --spec ./cypress/e2e/login/loginApplyApplicationActions.spec.ts",
-    "run:browser-stack": "browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyApplicationActions.spec.ts"
+    "run:browser-stack": "browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyPageObjectModel.spec.ts"
   },
   "keywords": [],
   "author": "",
