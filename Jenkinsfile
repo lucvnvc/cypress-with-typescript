@@ -7,15 +7,12 @@ pipeline {
 
     stages {
         stage('E2E Tests') {
-            when {
-                expression {params.runon=='browserStack'}
-            }
             steps {
                 browserstack(credentialsId: '07beebc5-e1b9-4c61-ae18-8f0eefb6c13c') {
                     // Run
                     sh 'npm install'
-                    sh 'npm run delete:reports'
-		            sh 'npm run run:browser-stack'
+                    sh 'rm -rf ./reports || true'
+		            sh 'browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyApplicationActions.spec.ts'
                 }
             }
         }
@@ -45,7 +42,7 @@ pipeline {
     // }
     post {
         always {
-            echo 'Generate report'
+            echo 'HTML report'
             publishHTML target: [
                 allowMissing: false,
                 alwaysLinkToLastBuild: false,
@@ -54,6 +51,8 @@ pipeline {
                 reportFiles: 'index.html',
                 reportName: 'Cypress Report'
             ]
+            echo 'BrowserStack report'
+            browserStackReportPublisher 'automate'
         }
     }
 }
