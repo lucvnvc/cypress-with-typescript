@@ -1,9 +1,5 @@
 pipeline {
     agent any
-    
-    tools {
-        nodejs "nodejs"
-    }
 
     stages {
         stage('E2E Tests') {
@@ -12,7 +8,7 @@ pipeline {
                     // Run
                     sh 'npm install'
                     sh 'rm -rf ./reports || true'
-		            sh './node_modules/.bin/browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyApplicationActions.spec.ts'
+		            sh 'npx browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyApplicationActions.spec.ts'
                 }
             }
         }
