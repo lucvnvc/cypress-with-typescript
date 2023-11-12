@@ -25,8 +25,7 @@ export default defineConfig({
       openMode: 0,
     },
     env: {
-      qc: 'https://web-ninjamart-qa-bo.apac.positivethinking.tech/',
-      uat: 'https://web-ninjamart-qa-bo.apac.positivethinking.tech/',
+      BROWSERSTACK_BUILD_NAME: 'Build no.',
     },
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
