@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     stages {
-        stage('E2E Tests') {
+        stage('Running Tests') {
             steps {
                 browserstack(credentialsId: 'd97c8285-563d-4e9f-8e41-ebffa498de57') {
                     // Run
@@ -10,6 +10,11 @@ pipeline {
                     sh 'rm -rf ./reports || true'
 		            sh 'npm run run:browser-stack'
                 }
+            }
+        }
+        stage('Generate report') {
+            steps {
+                browserStackReportPublisher: 'automate'
             }
         }
     }
