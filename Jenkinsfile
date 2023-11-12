@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('Set Environment') {
+            steps {
+                environment {
+                    BROWSERSTACK_BUILD_NAME = 'BrowserStack build'
+                }
+            }
+        }
+
         stage('Running Tests') {
             steps {
                 browserstack(credentialsId: 'd97c8285-563d-4e9f-8e41-ebffa498de57') {
