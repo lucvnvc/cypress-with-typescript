@@ -1,4 +1,4 @@
-import { User } from '../../environment/Setup';
+import { User } from '../../setup/Setup';
 import appointmentPage from '../../pages/AppointmentPage';
 import loginPage from '../../pages/LoginPage';
 

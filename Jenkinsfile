@@ -4,11 +4,11 @@ pipeline {
     stages {
         stage('E2E Tests') {
             steps {
-                browserstack(credentialsId: '07beebc5-e1b9-4c61-ae18-8f0eefb6c13c') {
+                browserstack(credentialsId: 'd97c8285-563d-4e9f-8e41-ebffa498de57') {
                     // Run
                     sh 'npm install'
                     sh 'rm -rf ./reports || true'
-		            sh 'npx browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyApplicationActions.spec.ts'
+		            sh 'npm run browserstack-cypress run --sync --specs ./cypress/e2e/login/loginApplyApplicationActions.spec.ts'
                 }
             }
         }

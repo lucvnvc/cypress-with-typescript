@@ -14,7 +14,7 @@
         "cypress": "13.2.0",
         "cypress-mochawesome-reporter": "3.6.0",
         "typescript": "5.2.2",
-        "browserstack-cypress-cli": "1.25.3"
+        "browserstack-cypress-cli": "^1.25.3"
       },
       "projectId": "cypress-typescript",
       "project_name": "Cypress combined with Typescript",
