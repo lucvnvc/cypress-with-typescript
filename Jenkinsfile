@@ -10,11 +10,7 @@ pipeline {
                     sh 'rm -rf ./reports || true'
 		            sh 'npm run run:browser-stack'
                 }
-            }
-        }
-        stage('Generate report') {
-            steps {
-                browserStackReportPublisher: 'automate'
+                browserStackReportPublisher 'automate'
             }
         }
     }
