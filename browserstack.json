@@ -22,9 +22,7 @@
       "exclude": [],
       "parallels": "1",
       "record": false,
-      "headless": true,
-      "spec_timeout": 10,
-      "credentialsId": "07beebc5-e1b9-4c61-ae18-8f0eefb6c13c"
+      "headless": true
     },
     "connection_settings": {
       "local": true,
