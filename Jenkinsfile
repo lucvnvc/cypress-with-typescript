@@ -8,24 +8,10 @@ pipeline {
                     // Run
                     sh 'npm install'
                     sh 'rm -rf ./reports || true'
-		            sh 'npm run run:browser-stack'
+		            sh './node_modules/.bin/browserstack-cypress run --sync --build-name $BROWSERSTACK_BUILD_NAME --specs ./cypress/e2e/login/loginApplyPageObjectModel.spec.ts'
                 }
                 browserStackReportPublisher 'automate'
             }
-        }
-    }
-
-    post {
-        always {
-            echo 'HTML report'
-            publishHTML target: [
-                allowMissing: false,
-                alwaysLinkToLastBuild: false,
-                keepAll: true,
-                reportDir: './results',
-                reportFiles: 'browserstack-cypress-report.html',
-                reportName: 'HTML Report'
-            ]
         }
     }
 }
