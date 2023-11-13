@@ -20,8 +20,8 @@
       "project_name": "Cypress with Typescript",
       "build_name": "$BROWSERSTACK_BUILD_NAME",
       "exclude": [],
-      "parallels": "1",
-      "record": false,
+      "parallels": "2",
+      "record": true,
       "headless": true
     },
     "connection_settings": {
