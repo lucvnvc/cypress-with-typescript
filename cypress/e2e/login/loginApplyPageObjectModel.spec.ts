@@ -41,9 +41,7 @@ describe('Login function', () => {
   describe('Login with valid credential', () => {
     it('verify login successfully with valid credential', () => {
       loginPage.login(user.username, user.password);
-      appointmentPage.elements
-        .lbTitle()
-        .should('have.text', 'Make Appointment');
+      appointmentPage.getTitle().should('have.text', 'Make Appointment');
     });
   });
 });
