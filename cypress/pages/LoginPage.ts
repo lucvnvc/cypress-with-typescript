@@ -27,6 +27,10 @@ class LoginPage {
     }
     this.clickOnLogin();
   }
+
+  getError() {
+    return this.elements.lbError();
+  }
 }
 
 export default new LoginPage();

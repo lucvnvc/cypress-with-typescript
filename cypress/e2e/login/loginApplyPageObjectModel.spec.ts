@@ -1,6 +1,6 @@
-import { User } from '../../setup/Setup';
 import appointmentPage from '../../pages/AppointmentPage';
 import loginPage from '../../pages/LoginPage';
+import { User } from '../../setup/Setup';
 
 describe('Login function', () => {
   let user: User;
@@ -19,22 +19,22 @@ describe('Login function', () => {
   describe('Login with invalid credential', () => {
     it('login with both user and password empty', () => {
       loginPage.login();
-      loginPage.elements.lbError().should('have.text', ERROR_LOGIN_FAIL);
+      loginPage.getError().should('have.text', ERROR_LOGIN_FAIL);
     });
 
     it('login with password empty', () => {
       loginPage.login('standard_user', undefined);
-      loginPage.elements.lbError().should('have.text', ERROR_LOGIN_FAIL);
+      loginPage.getError().should('have.text', ERROR_LOGIN_FAIL);
     });
 
     it('login with user empty', () => {
       loginPage.login(undefined, 'secret_sauce');
-      loginPage.elements.lbError().should('have.text', ERROR_LOGIN_FAIL);
+      loginPage.getError().should('have.text', ERROR_LOGIN_FAIL);
     });
 
     it('login with user and password are not correctly', () => {
       loginPage.login('standard_user1', 'secret_sauce1');
-      loginPage.elements.lbError().should('have.text', ERROR_LOGIN_FAIL);
+      loginPage.getError().should('have.text', ERROR_LOGIN_FAIL);
     });
   });
 
