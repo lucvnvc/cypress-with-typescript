@@ -4,7 +4,7 @@ export default defineConfig({
   e2e: {
     baseUrl: 'https://katalon-demo-cura.herokuapp.com',
     defaultCommandTimeout: 10000,
-    pageLoadTimeout: 30000,
+    pageLoadTimeout: 15000,
     video: false,
     screenshotsFolder: './reports/',
     reporter: 'cypress-mochawesome-reporter',
@@ -21,12 +21,10 @@ export default defineConfig({
     experimentalWebKitSupport: false,
 
     retries: {
-      runMode: 0,
+      runMode: 2,
       openMode: 0,
     },
-    env: {
-      BROWSERSTACK_BUILD_NAME: 'Build no.',
-    },
+    env: {},
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
